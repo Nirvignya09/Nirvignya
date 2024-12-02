@@ -14,7 +14,7 @@ function Hero() {
           transition={{ duration: 1 }}
         >
           <h1 className="text-2xl sm:text-5xl font-bold">
-            Hi, I'm Nirvignya Ageer
+            Hi, I'm Nirvignya 
           </h1>
           <p className="mt-4 text-xl opacity-80">
           I am a passionate Full-Stack Web Developer skilled in HTML, CSS, JavaScript, PHP, and React.js. I specialize in creating responsive websites with clean code and modern design principles, delivering user-friendly interfaces and efficient functionality.
