@@ -1,89 +1,93 @@
 import React from "react";
-import { FaLinkedin, FaGithub, FaInstagram } from "react-icons/fa"; // Importing social media icons
-import { Link } from "react-scroll"; // Importing the Link component from react-scroll
+import { Link } from "react-router-dom";
+import { FaGithub, FaLinkedin, FaInstagram } from "react-icons/fa";
 
 function Navbar() {
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+  };
+
   return (
-    <header className="bg-gradient-to-r from-gray-900 via-gray-800 to-black py-6 px-8 fixed w-full z-50 top-0 shadow-lg">
-      <nav className="max-w-7xl mx-auto flex justify-between items-center">
-        {/* Logo / Brand */}
-        <div className="text-white text-3xl font-bold">
-          <a href="#">Portfolio</a>
-        </div>
+    <nav className="fixed top-0 left-0 right-0 bg-gray-800 text-white shadow-lg z-50">
+      <div className="container mx-auto px-6 py-5 flex justify-between items-center">
+        {/* Logo */}
+        <h1 className="text-2xl font-bold tracking-wide">My Portfolio</h1>
 
-        {/* Navbar Links */}
-        <div className="flex space-x-8 text-white">
-          <Link
-            to="home" // ID of the section to scroll to
-            smooth={true} 
-            duration={500}
-            className="hover:text-yellow-400 transition-all cursor-pointer"
-          >
-            Home
-          </Link>
-          <Link
-            to="about" // ID of the section to scroll to
-            smooth={true}
-            duration={500}
-            className="hover:text-yellow-400 transition-all cursor-pointer"
-          >
-            About
-          </Link>
-          <Link
-            to="skills" // ID of the section to scroll to
-            smooth={true}
-            duration={500}
-            className="hover:text-yellow-400 transition-all cursor-pointer"
-          >
-            Skills
-          </Link>
-          <Link
-            to="projects" // ID of the section to scroll to
-            smooth={true}
-            duration={500}
-            className="hover:text-yellow-400 transition-all cursor-pointer"
-          >
-            Projects
-          </Link>
-          <Link
-            to="contact" // ID of the section to scroll to
-            smooth={true}
-            duration={500}
-            className="hover:text-yellow-400 transition-all cursor-pointer"
-          >
-            Contact
-          </Link>
-        </div>
+        {/* Links */}
+        <ul className="flex space-x-8 items-center text-lg font-medium">
+          <li>
+            <button
+              onClick={scrollToTop}
+              className="hover:text-yellow-400 transition"
+            >
+              Home
+            </button>
+          </li>
+          <li>
+            <a href="#about" className="hover:text-yellow-400 transition">
+              About
+            </a>
+          </li>
+          <li>
+            <a href="#skills" className="hover:text-yellow-400 transition">
+              Skills
+            </a>
+          </li>
+          <li>
+            <a href="#projects" className="hover:text-yellow-400 transition">
+              Projects
+            </a>
+          </li>
+          <li>
+            <a href="#contact" className="hover:text-yellow-400 transition">
+              Contact
+            </a>
+          </li>
+          <li>
+            <Link to="/contact" className="hover:text-yellow-400 transition">
+              Contact Page
+            </Link>
+          </li>
 
-        {/* Social Media Icons */}
-        <div className="flex space-x-6 text-white">
-          <a
-            href="https://www.linkedin.com/in/nirvignya-ageer-694a65317/"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-gray-400 hover:text-yellow-400 transition-all"
-          >
-            <FaLinkedin size={24} />
-          </a>
-          <a
-            href="https://github.com/Nirvignya09"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-gray-400 hover:text-yellow-400 transition-all"
-          >
-            <FaGithub size={24} />
-          </a>
-          <a
-            href="https://instagram.com"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-gray-400 hover:text-yellow-400 transition-all"
-          >
-            <FaInstagram size={24} />
-          </a>
-        </div>
-      </nav>
-    </header>
+          {/* Social Media Icons */}
+          <li>
+            <a
+              href="https://github.com/Nirvignya09"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-gray-400 hover:text-yellow-400 transition-all"
+            >
+              <FaGithub size={25} />
+            </a>
+          </li>
+          <li>
+            <a
+              href="https://linkedin.com/in/your-username"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-2xl hover:scale-110 transform transition"
+              style={{ color: "#0077b5" }}
+            >
+              <FaLinkedin />
+            </a>
+          </li>
+          <li>
+            <a
+              href="https://instagram.com/your-username"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-2xl hover:scale-110 transform transition"
+              style={{ color: "#e1306c" }}
+            >
+              <FaInstagram />
+            </a>
+          </li>
+        </ul>
+      </div>
+    </nav>
   );
 }
 
