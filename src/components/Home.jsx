@@ -5,30 +5,21 @@ import About from "./About";
 import Skills from "./Skills";
 import Projects from "./Projects";
 import Footer from "./Footer";
+import ContactForm from "./Contactpage";
 
 function Home() {
   return (
     <div>
-      <section id="navbar">
       <Navbar />
-      </section>
-
-      {/* Sections */}
-      <section id="hero">
-        <Hero />
-      </section>
-      <section id="about">
-        <About />
-      </section>
-      <section id="skills">
-        <Skills />
-      </section>
-      <section id="projects">
-        <Projects />
-      </section>
+      <Hero />
+      <About />
+      <Skills />
+      <Projects />
+      {/* Add the Contact Form Section */}
       <section id="contact">
-        <Footer />
+        <ContactForm />
       </section>
+      <Footer />
     </div>
   );
 }

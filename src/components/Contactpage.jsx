@@ -1,93 +1,67 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
 import emailjs from "emailjs-com";
 
-function Contact() {
+function ContactForm() {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
-  const [loading, setLoading] = useState(false); // Loading state to manage button state
+  const [reason, setReason] = useState("");
+  const [loading, setLoading] = useState(false);
 
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    // Ensure the fields are filled out
-    if (!name || !email || !phone) {
+    if (!name || !email || !phone || !reason) {
       alert("Please fill out all fields.");
       return;
     }
 
-    // Log the data to ensure it's being captured
-    console.log("Form Data:", { name, email, phone });
-
-    // Set loading state to true to show the user that the form is being submitted
     setLoading(true);
 
-    // Template parameters
     const templateParams = {
-      user_name: name, // Matches the {{user_name}} in your EmailJS template
-      user_email: email, // Matches the {{user_email}} in your EmailJS template
-      user_phone: phone, // Matches the {{user_phone}} in your EmailJS template
+      user_name: name,
+      user_email: email,
+      user_phone: phone,
+      user_reason: reason,
     };
 
-    // Send email using EmailJS
     emailjs
       .send(
-        "service_eqh3zep",  // Your EmailJS service ID
-        "template_yx83cnc",  // Your template ID
-        templateParams,      // Template parameters with the filled values
+        "service_eqh3zep", // Your EmailJS service ID
+        "template_yx83cnc", // Your template ID
+        templateParams,
         "fOTUerzLvS2IH25YY" // Your Public API Key
       )
       .then(
         (response) => {
-          console.log("Email successfully sent", response);
-          alert("Your message has been sent successfully!");
-
-          // Reset form fields after submission
+          console.log("Email sent successfully", response);
+          alert("Your message has been sent!");
           setName("");
           setEmail("");
           setPhone("");
-
-          // Set loading state back to false
+          setReason("");
           setLoading(false);
         },
         (error) => {
           console.error("Failed to send email", error);
-          alert("Oops! Something went wrong, please try again.");
-
-          // Set loading state back to false even if email sending fails
+          alert("Something went wrong, please try again.");
           setLoading(false);
         }
       );
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-r from-purple-700 via-purple-500 to-purple-700 text-white">
-      {/* Navbar */}
-      <nav className="bg-purple-900 p-4 flex justify-between items-center shadow-lg">
-        <h1 className="text-2xl font-bold">Contact Me</h1>
-        <div>
-          <Link
-            to="/"
-            className="text-lg font-semibold bg-purple-600 px-4 py-2 rounded-md hover:bg-purple-500 transition-all"
-          >
-            Home
-          </Link>
-        </div>
-      </nav>
-
-      {/* Form Section */}
-      <div className="flex items-center justify-center h-[calc(100vh-4rem)] px-4">
-        <form
-          onSubmit={handleSubmit}
-          className="bg-white text-black rounded-lg shadow-lg w-full max-w-lg p-8"
-        >
-          <h2 className="text-2xl font-bold mb-6 text-center text-purple-700">
-            Get in Touch
-          </h2>
-          {/* Name Field */}
-          <div className="mb-4">
-            <label className="block text-sm font-bold mb-2" htmlFor="name">
+    <div className="bg-gradient-to-r from-gray-700 via-gray-900 to-black py-16">
+      <div className="max-w-3xl mx-auto text-center text-white mb-8">
+        <h2 className="text-4xl font-bold text-yellow-400">Contact Me</h2>
+        <p className="text-lg mt-2 text-yellow-400">
+          Feel free to reach out to me for any inquiries or collaborations!
+        </p>
+      </div>
+      <div className="max-w-lg mx-auto bg-gradient-to-r from-gray-700 via-gray-900 to-black text-white rounded-lg shadow-lg p-6">
+        <form onSubmit={handleSubmit}>
+          <div className="mb-4 ">
+            <label htmlFor="name" className="block text-sm font-bold mb-2 ">
               Name
             </label>
             <input
@@ -96,14 +70,12 @@ function Contact() {
               value={name}
               onChange={(e) => setName(e.target.value)}
               placeholder="Your Name"
-              className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500"
+              className="w-full p-3 border text-black border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500"
               required
             />
           </div>
-
-          {/* Email Field */}
           <div className="mb-4">
-            <label className="block text-sm font-bold mb-2" htmlFor="email">
+            <label htmlFor="email" className="block text-sm font-bold mb-2">
               Email
             </label>
             <input
@@ -112,14 +84,12 @@ function Contact() {
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               placeholder="Your Email"
-              className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500"
+              className="w-full p-3 border text-black border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500"
               required
             />
           </div>
-
-          {/* Phone Field */}
-          <div className="mb-6">
-            <label className="block text-sm font-bold mb-2" htmlFor="phone">
+          <div className="mb-4">
+            <label htmlFor="phone" className="block text-sm font-bold mb-2">
               Phone Number
             </label>
             <input
@@ -128,23 +98,55 @@ function Contact() {
               value={phone}
               onChange={(e) => setPhone(e.target.value)}
               placeholder="Your Phone Number"
-              className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500"
+              className="w-full p-3 border text-black border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500"
               required
             />
           </div>
-
-          {/* Submit Button */}
+          <div className="mb-6">
+            <label htmlFor="reason" className="block text-sm font-bold mb-2">
+              Reason for Contact
+            </label>
+            <textarea
+              id="reason"
+              value={reason}
+              onChange={(e) => setReason(e.target.value)}
+              placeholder="Briefly explain your reason for contacting me."
+              className="w-full p-3 border text-black border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500"
+              rows="4"
+              required
+            ></textarea>
+          </div>
           <button
             type="submit"
-            className="w-full bg-purple-700 text-white font-bold py-3 rounded-lg hover:bg-purple-600 transition-all"
-            disabled={loading} // Disable the button while submitting
+            className="w-full bg-yellow-300 text-gray-800 font-bold py-3 rounded-lg hover:bg-yellow-500 transition-all"
+            disabled={loading}
           >
             {loading ? "Submitting..." : "Submit"}
           </button>
         </form>
       </div>
+      <div className="mt-8 text-center text-white">
+        <div className="bg-transparent p-6 rounded-lg shadow-md inline-block">
+          <p className="text-lg font-semibold text-yellow-400">You can also reach me at:</p>
+          <p className="mt-2">
+            <span className="font-bold">Phone:</span>{" "}
+            <a href="tel:+919246226840" className="hover:underline">
+              +91 92462 26840
+            </a>
+          </p>
+          <p>
+            <span className="font-bold">Email:</span>{" "}
+            <a
+              href="mailto:ageernirvignya@gmail.com"
+              className="hover:underline"
+            >
+              ageernirvignya@gmail.com
+            </a>
+          </p>
+        </div>
+      </div>
     </div>
   );
 }
 
-export default Contact;
+export default ContactForm;

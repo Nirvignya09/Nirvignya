@@ -3,10 +3,10 @@ import { FaLinkedin, FaGithub, FaInstagram } from "react-icons/fa"; // Import th
 
 function Footer() {
   return (
-    <footer className="bg-gradient-to-r from-gray-900 via-gray-800 to-black py-8 px-6 lg:px-12">
-      <div className="max-w-4xl mx-auto flex items-center justify-center text-gray-300 space-x-4">
+    <footer className="bg-gradient-to-r from-gray-900 via-gray-800 to-black py-6 px-4 lg:px-12">
+      <div className="max-w-4xl mx-auto flex flex-col sm:flex-row items-center justify-center text-gray-300 space-y-4 sm:space-y-0 sm:space-x-4">
         {/* Text */}
-        <div className="text-lg text-gray-400">
+        <div className="text-sm sm:text-lg text-gray-400">
           <p>© 2024 Nirvignya Ageer. All rights reserved.</p>
         </div>
 
