@@ -14,7 +14,7 @@ function Navbar() {
     <nav className="fixed top-0 left-0 right-0 bg-gray-800 text-white shadow-lg z-50">
       <div className="container mx-auto px-6 py-5 flex justify-between items-center">
         {/* Logo */}
-        <h1 className="text-2xl font-bold tracking-wide">My Portfolio</h1>
+        <h1 className="text-2xl font-bold tracking-wide">Portfolio</h1>
 
         {/* Links */}
         <ul className="flex space-x-8 items-center text-lg font-medium">
