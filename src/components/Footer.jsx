@@ -29,7 +29,7 @@ function Footer() {
             <FaGithub size={30} />
           </a>
           <a
-            href="https://instagram.com"
+            href="https://www.instagram.com/nirvignya/"
             target="_blank"
             rel="noopener noreferrer"
             className="text-gray-400 hover:text-yellow-400 transition-all"

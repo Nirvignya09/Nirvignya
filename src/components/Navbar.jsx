@@ -60,7 +60,7 @@ function Navbar() {
             <FaGithub size={22} />
           </a>
           <a
-            href="https://linkedin.com/in/your-username"
+            href="https://www.linkedin.com/in/nirvignya-ageer-694a65317/"
             target="_blank"
             rel="noopener noreferrer"
             className="hover:scale-110 transform transition"
@@ -69,7 +69,7 @@ function Navbar() {
             <FaLinkedin size={22} />
           </a>
           <a
-            href="https://instagram.com/your-username"
+            href="https://www.instagram.com/nirvignya/"
             target="_blank"
             rel="noopener noreferrer"
             className="hover:scale-110 transform transition"
