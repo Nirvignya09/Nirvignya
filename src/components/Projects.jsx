@@ -10,13 +10,13 @@ function Projects() {
       link: "https://nirvignya09.github.io/google-clone/", // Replace with the link to the project
       tech: "HTML, CSS"
     },
-    {
-      title: "Netflix Clone",
-      description: "A Netflix-like UI clone made using React and Tailwind CSS.",
-      imageUrl: "/images/about.png", // Replace with your project image URLs
-      link: "#", // Replace with the link to the project
-      tech: "HTML, CSS, BOOTSTRAP"
-    },
+    // {
+    //   title: "Netflix Clone",
+    //   description: "A Netflix-like UI clone made using React and Tailwind CSS.",
+    //   imageUrl: "/images/about.png", // Replace with your project image URLs
+    //   link: "#", // Replace with the link to the project
+    //   tech: "HTML, CSS, BOOTSTRAP"
+    // },
     {
       title: "Cafe Website",
       description: "A fully responsive Cafe website built with HTML, CSS, and Bootstrap.",
@@ -24,13 +24,13 @@ function Projects() {
       link: "https://nirvignya09.github.io/Localcafe/", // Replace with the link to the project
       tech: "HTML, CSS, Bootstrap"
     },
-    {
-      title: "Product Catalogue",
-      description: "A Product Catalogue website with PHP as backend.",
-      imageUrl: "/images/about.png", // Replace with your project image URLs
-      link: "#", // Replace with the link to the project
-      tech: "HTML, CSS, BOOTSTRAP, PHP"
-    },
+    // {
+    //   title: "Product Catalogue",
+    //   description: "A Product Catalogue website with PHP as backend.",
+    //   imageUrl: "/images/about.png", // Replace with your project image URLs
+    //   link: "#", // Replace with the link to the project
+    //   tech: "HTML, CSS, BOOTSTRAP, PHP"
+    // },
   ];
 
   return (
